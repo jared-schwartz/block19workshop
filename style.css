@@ -1,0 +1,17 @@
+h1 {
+    padding-left: 3px;
+}
+body {
+    background-color: black;
+    color: white;
+    padding: 5%;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 25%;
+    text-align: center;
+    border: 1px white;
+    font-size: large;
+  }
