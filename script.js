@@ -9,7 +9,7 @@ const posNames = [
 ];
 
 const posOccupations = [
-    "Welder", "Carpenter", "Truck Driver"
+    "Welder", "Carpenter", "Truck Driver", "Professor", "Engineer", "Cashier", "Account Manager", "Store Manager"
 ];
 
 function renderFreelancers (){
@@ -23,15 +23,27 @@ function renderFreelancers (){
     });
     freelancerList.replaceChildren(...freelancersElements);
 }
+
+function renderAveragePrice () {
+    const totalPrice = freelancers.reduce((acc, freelancer) => acc + freelancer.price, 0);
+    const averagePrice = (freelancers.length > 0) ? totalPrice / freelancers.length: 0;
+    const avgPriceElement = document.getElementById("average-price");
+    avgPriceElement.textContent = `$${averagePrice.toFixed(2)}`;
+}
+
 const addfreelancerIntervalId =setInterval(()=> {
     const name = posNames[Math.floor(Math.random()*posNames.length)];
     const occupation = posOccupations[Math.floor(Math.random()*posOccupations.length)];
-    const price = Math.floor(Math.random()*60);
+    const price = Math.floor(Math.random()*100);
     freelancers.push({name, occupation, price});
+
     renderFreelancers();
+    renderAveragePrice();
+
     if (freelancers.length === 15){
         clearInterval(addfreelancerIntervalId);
     };
 },1000);
 
 renderFreelancers();
+renderAveragePrice();
