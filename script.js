@@ -5,7 +5,7 @@ const freelancers = [
 ];
 
 const posNames = [
-    "Aron", "Noah", "Sam"
+    "Aron", "Noah", "Sam", "Nick", "Paul", "Ryan"
 ];
 
 const posOccupations = [
@@ -34,13 +34,13 @@ function renderAveragePrice () {
 const addfreelancerIntervalId =setInterval(()=> {
     const name = posNames[Math.floor(Math.random()*posNames.length)];
     const occupation = posOccupations[Math.floor(Math.random()*posOccupations.length)];
-    const price = Math.floor(Math.random()*100);
+    const price = Math.floor(Math.random()*100+30);
     freelancers.push({name, occupation, price});
 
     renderFreelancers();
     renderAveragePrice();
 
-    if (freelancers.length === 15){
+    if (freelancers.length === 20){
         clearInterval(addfreelancerIntervalId);
     };
 },1000);
